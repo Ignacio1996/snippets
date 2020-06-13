@@ -1,0 +1,66 @@
+{
+  // Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  "Print to console": {
+    "prefix": "log",
+    "body": [
+      "console.log('${TM_FILEPATH/.*[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]index\\.js$|.*[\\/\\\\](.*)/$1$2/} $TM_LINE_INDEX | $1', $2);"
+    ],
+    "description": "Log output to console"
+  },
+  "Arrow Function": {
+    "prefix": "arr",
+    "body": ["()=>{$1}"],
+    "description": "Quick Arrow function"
+  },
+  "Error handler": {
+    "prefix": "herr",
+    "body": [
+      "(error)=>{console.log(\"${TM_FILEPATH/.*[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]index\\.js$|.*[\\/\\\\](.*)/$1$2/} $TM_LINE_INDEX | $1\", \"ERROR\", error)}"
+    ],
+    "description": "Quick Arrow function"
+  },
+  "Firebase Database": {
+    "prefix": "fd",
+    "body": ["firebase.database().ref('$1')"],
+    "description": "firebase database ref"
+  },
+
+  "Export Async const": {
+    "prefix": "eac",
+    "body": ["export const $1 = async ($2) =>{$3}"],
+    "description": "Quick export async func"
+  },
+
+  "Quick map for React": {
+    "prefix": "map",
+    "body": [
+      "$1.map(($2, index)=>{ \n console.log('${TM_FILEPATH/.*[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]index\\.js$|.*[\\/\\\\](.*)/$1$2/} | $TM_LINE_INDEX', $2); \n //return <$4 key={index}>{$2}</$4> \n })"
+    ],
+    "description": "Quick map"
+  },
+
+  "Express Snippet": {
+    "prefix": "exp",
+    "body": [
+      "const express = require('express'); \nconst app = express(); \n \napp.get('/', (req, res) => { \n res.send('Hello World!'); \n}); \n\napp.listen(process.env.PORT || 8080, () => {  \n console.log('Server started...'); \n});"
+    ],
+    "description": "Quick Express template"
+  },
+  "Firebase CRUD Snippet": {
+    "prefix": "fcrud",
+    "body": [
+      "export const _createData = async (route, createObject) => { try {return firebase.database().ref(route).set(createObject);} catch (error) { console.log(\"snippets.js 11 | Error\");}};export const _getData = async (route) => {try {const request = await firebase.database().ref(route).once(\"value\");if (request.val()) {const data = await Object.entries(request.val());return data;}} catch (error) {console.log(\"snippets.js 23 | Error\");}};export const _updateData = async (route, updateObject) => {try {return firebase.database().ref(route).update(updateObject);} catch (error) {console.log(\"snippets.js 31 | Error\");}}"
+    ],
+    "description": "Quick Express template"
+  },
+
+  "Functional React Button Container": {
+    "prefix": "rbc",
+    "body": ["const $1 =()=>{ return <button>$2</button>}"],
+    "description": "Button component shortcut"
+  }
+}
